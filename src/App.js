@@ -1,13 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import UploafImg from './components/uploadimg/UploafImg';
+import logo from "./logo.svg";
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import routes from "./router/Routes";
 
 function App() {
-  return (
-    <div className="App">
-     <UploafImg></UploafImg>
-    </div>
-  );
+  return <div className="">
+    <RouterProvider router={routes}>
+
+    </RouterProvider>
+  </div>;
 }
 
 export default App;
