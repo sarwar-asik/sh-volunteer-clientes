@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const PostCard = () => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-    
+const PostCard = () => {
   const addCard = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,7 +21,7 @@ const PostCard = () => {
     };
     console.log(card);
 
-    fetch("http://localhost:5000/addCard", {
+    fetch("https://sh-volunteer-server.vercel.app/addCard", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -30,7 +31,7 @@ const PostCard = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        alert("added card");
+        toast("added card");
         form.reset();
       });
   };
@@ -102,6 +103,7 @@ const PostCard = () => {
           />
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };
